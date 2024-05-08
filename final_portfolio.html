@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio</title>
+<link rel="icon" href="cursor.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Londrina+Shadow&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Londrina+Shadow&family=Londrina+Solid:wght@100;300;400;900&display=swap" rel="stylesheet">
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    overflow: hidden;
+    cursor: url('cursor.png'), auto;
+  }
+  .centered-text {
+    text-align: center;
+  }
+  .londrina-shadow-regular {
+    font-family: "Londrina Shadow", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  .first-line {
+    font-size: 6vw; /* Adjust the font size for the first line */
+    line-height: 0.3; /* Adjust the line height */
+  }
+  .other-lines {
+    font-size: 3vw; /* Adjust the font size for other lines */
+    line-height: 1; /* Adjust the line height */
+  }
+  .underline {
+    text-decoration: underline;
+    text-decoration-thickness: 3px; /* Adjust the thickness of the underline */
+    text-decoration-skip-ink: none;
+  }
+  .underline:hover {
+    text-decoration: none; /* Remove underline on hover */
+    font-family: "Londrina Solid", sans-serif;
+    color: darkcyan;
+  }
+  .image {
+    display: none; /* Hide image by default */
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px; /* Adjust the spacing between text and image */
+  }
+  .underline:hover .image {
+    display: block; /* Show image when hovered over underlined words */
+    position: fixed;
+    top: 35vh;
+    left: 10vw;
+  }
+  .first-line:hover .underline:hover {
+    font-size: 7vw;
+  }
+  .other-lines:hover .underline:hover {
+    font-size: 4vw;
+  }
+  .cloud {
+    position: absolute;
+    max-width: 200px; /* Adjust the maximum width of the image */
+    height: auto;
+    z-index: 1; /* Ensure the image appears above other elements */
+    animation: moveAround 40s infinite linear alternate; /* Animation properties */
+  }
+  .cloud1 {
+    position: absolute;
+    max-width: 300px; /* Adjust the maximum width of the image */
+    height: auto;
+    z-index: 1; /* Ensure the image appears above other elements */
+    animation: moveAround1 20s infinite linear alternate; /* Animation properties */
+  }
+  @keyframes moveAround {
+    0% {
+      top: 8vh;
+      left: -10vw;
+    }
+    100% {
+      top: 8vh;
+      left: 110vw;
+    }
+  }
+  @keyframes moveAround1 {
+    0% {
+      top: 85vh;
+      left: -30vw;
+    }
+    100% {
+      top: 85vh;
+      left: 120vw;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="centered-text">
+  <p class="londrina-shadow-regular first-line">Hi, I'm <span class="underline" style="text-decoration: none;">Felix Yifei Wang</span>.</p>
+  <p class="londrina-shadow-regular other-lines">I’m an <span class="underline">engineer<img class="image" src="https://via.placeholder.com/150" alt="Image"></span>, a <span class="underline">designer</span>, and a <span class="underline">founder</span>.</p>
+  <p class="londrina-shadow-regular other-lines">I’m a <span class="underline">gamer</span>, an <span class="underline">actor</span>, and a <span class="underline">squash player</span>.</p>
+  <p class="londrina-shadow-regular other-lines">Want to know more about me? <span class="underline">Contact me</span>!</p>
+</div>
+<img class="cloud" src="cloud1.png" alt="Cloud">
+<img class="cloud1" src="cloud2.png" alt="Cloud">
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+      var lastMouseX = 0; // Variable to store the last mouseX position
+      var bodyElement = document.body; // Using body as the hover area
+
+      bodyElement.addEventListener('mousemove', function(event) {
+          var currentMouseX = event.clientX; // Get current mouseX position
+
+          if (currentMouseX < lastMouseX) {
+              // Mouse is moving left
+              bodyElement.style.cursor = "url('cursor_left.png'), auto";
+          } else if (currentMouseX > lastMouseX) {
+              // Mouse is moving right or not moving horizontally
+              bodyElement.style.cursor = "url('cursor.png'), auto";  // Default cursor or other cursor
+          }
+
+          lastMouseX = currentMouseX; // Update lastMouseX position
+      });
+  });
+</script>
+</body>
+</html>
