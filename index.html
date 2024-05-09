@@ -21,6 +21,7 @@
     overflow: hidden;
     cursor: url('cursor.png'), auto;
   }
+  
   .centered-text {
     text-align: center;
   }
@@ -215,9 +216,11 @@
   document.addEventListener('DOMContentLoaded', function() {
       var lastMouseX = 0; // Variable to store the last mouseX position
       var bodyElement = document.body; // Using body as the hover area
-      document.getElementById('tag0').addEventListener('click', function() {
-          window.location.href = 'general.html';
-      });
+      document.body.style.opacity = 0;
+      window.onload = function() {
+          document.body.style.transition = 'opacity 0.5s ease-in-out';
+          document.body.style.opacity = 1;
+      };
 
       bodyElement.addEventListener('mousemove', function(event) {
           var currentMouseX = event.clientX; // Get current mouseX position
@@ -232,6 +235,30 @@
 
           lastMouseX = currentMouseX; // Update lastMouseX position
       });
+  });
+  document.getElementById('tag0').addEventListener('click', function() {
+      document.body.style.opacity = 0;
+      setTimeout(() => {
+          window.location.href = 'general.html';
+      }, 500); // Match the duration of the fade-out effect
+  });
+  document.getElementById('tag1').addEventListener('click', function() {
+    document.body.style.opacity = 0;
+      setTimeout(() => {
+          window.location.href = 'case1.html';
+      }, 500); // Match the duration of the fade-out effect
+  });
+  document.getElementById('tag2').addEventListener('click', function() {
+    document.body.style.opacity = 0;
+      setTimeout(() => {
+          window.location.href = 'case2.html';
+      }, 500); // Match the duration of the fade-out effect
+  });
+  document.getElementById('tag3').addEventListener('click', function() {
+    document.body.style.opacity = 0;
+      setTimeout(() => {
+          window.location.href = 'case3.html';
+      }, 500); // Match the duration of the fade-out effect
   });
 </script>
 </body>

@@ -3,222 +3,216 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio</title>
+<title>Webapp Development</title>
 <link rel="icon" href="cursor.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Londrina+Shadow&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Londrina+Shadow&family=Londrina+Solid:wght@100;300;400;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 <style>
+  html {
+    scroll-behavior: smooth;
+  }
   body {
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: white;
-    overflow: hidden;
     cursor: url('cursor.png'), auto;
   }
-  .centered-text {
-    text-align: center;
+  .header {
+      text-align: center;
+      margin-top: 10vh;
+      margin-bottom: 20px;
+      text-align: left; /* Ensures content is centered */
+      margin-left: 25vw;
   }
-  .londrina-shadow-regular {
-    font-family: "Londrina Shadow", sans-serif;
-    font-weight: 400;
-    font-style: normal;
+  .title {
+      font-family: "Londrina Shadow", sans-serif;
+      font-size: 96px;
+      max-width: 60vw; /* Ensures better readability */
+      text-align: left; /* Text inside paragraphs should be left-aligned */
+      display: inline-block;
   }
-  .first-line {
-    font-size: 6vw; /* Adjust the font size for the first line */
-    line-height: 0.3; /* Adjust the line height */
-  }
-  .other-lines {
-    font-size: 3vw; /* Adjust the font size for other lines */
-    line-height: 1; /* Adjust the line height */
-  }
-  .underline {
-    text-decoration: underline;
-    text-decoration-thickness: 2px; /* Adjust the thickness of the underline */
-    text-decoration-skip-ink: none;
-  }
-  .underline:hover {
-    text-decoration: none; /* Remove underline on hover */
+  .title:hover {
     font-family: "Londrina Solid", sans-serif;
     color: rgb(230, 174, 1);
   }
-  .bubble0 {
-    display: none; /* Hide image by default */
-    max-width: 22vw;
-    height: auto;
-    margin-top: 10px; /* Adjust the spacing between text and image */
+  .content {
+      text-align: left; /* Ensures content is centered */
+      margin-top: 15vh;
+      margin-left: 25vw;
   }
-  .bubble1 {
-    display: none; /* Hide image by default */
-    max-width: 20vw;
-    height: auto;
-    margin-top: 10px; /* Adjust the spacing between text and image */
+  .content a {
+    font-weight: bolder;
+    font-family: "Londrina Solid", sans-serif;
+    font-size: 28px;
+    text-decoration: none;
   }
-  .bubble2 {
-    display: none; /* Hide image by default */
-    max-width: 25vw;
-    height: auto;
-    margin-top: 10px; /* Adjust the spacing between text and image */
+  .button {
+      text-align: center; /* Ensures content is centered */
+      margin-top: 15vh;
+      margin-bottom: 10vh;
   }
-  .bubble3 {
-    display: none; /* Hide image by default */
-    max-width: 20vw;
-    height: auto;
-    margin-top: 10px; /* Adjust the spacing between text and image */
+  .content .img {
+    max-width: 70vw;
+    margin-left: -10vw;
+    margin-top: 5vh;
+    margin-bottom: 3vh;
+    border-top: 3px black solid;
+    border-left: 3px black solid;
+    border-right: 9px black solid;
+    border-bottom: 9px black solid;
   }
-  .bubble4 {
-    display: none; /* Hide image by default */
-    max-width: 20vw;
-    height: auto;
-    margin-top: 10px; /* Adjust the spacing between text and image */
+  .subtitle {
+      font-family: "Roboto", sans-serif;
+      margin-bottom: 20px; /* Space around paragraphs */
+      font-size: 32px;
+      line-height: 1.6;
+      max-width: 50vw; /* Ensures better readability */
+      text-align: left; /* Text inside paragraphs should be left-aligned */
+      display: block;
   }
-  .bubble5 {
-    display: none; /* Hide image by default */
-    max-width: 15vw;
-    height: auto;
-    margin-top: 10px; /* Adjust the spacing between text and image */
+  .txt {
+      font-family: "Roboto", sans-serif;
+      margin-bottom: 20px; /* Space around paragraphs */
+      font-size: 20px;
+      font-weight: 300;
+      line-height: 1.6;
+      max-width: 50vw; /* Ensures better readability */
+      text-align: left; /* Text inside paragraphs should be left-aligned */
+      display: block;
   }
-  .bubble6 {
-    display: none; /* Hide image by default */
-    max-width: 15vw;
-    height: auto;
-    margin-top: 10px; /* Adjust the spacing between text and image */
+  #myBtn {
+    align-items: center;
+    border: none; /* No borders */
+    outline: none; /* Remove outline */
+    background-color: white; /* Set a background color */
+    font-family: "Londrina Shadow", sans-serif;
+    font-size: 48px;
+    cursor: pointer;
   }
-  .bubble7 {
-    display: none; /* Hide image by default */
-    max-width: 8vw;
-    height: auto;
-    margin-top: 10px; /* Adjust the spacing between text and image */
+
+  #myBtn:hover {
+    font-family: "Londrina Solid", sans-serif;
+    color: rgb(230, 174, 1);
   }
-  #tag0:hover .bubble0 {
-    display: block; /* Show image when hovered over underlined words */
+  #sidebar {
     position: fixed;
-    top: 6vh;
-    left: 40vw;
-    z-index: 1000;
+    left: 30px;
+    top: 30px;
+    width: 75px;
+    height: 92px;
+    border-top: 1px black solid;
+    border-left: 1px black solid;
+    border-right: 3px black solid;
+    border-bottom: 3px black solid;
+    transition: width 1s ease, height 1s ease;
   }
-  #tag1:hover .bubble1 {
-    display: block; /* Show image when hovered over underlined words */
-    position: fixed;
-    top: 33vh;
-    left: 2vw;
-    z-index: 1000;
+  #sidebar h3 {
+    font-family: "Londrina Shadow", sans-serif;
+    font-size: 64px;
+    margin: 0;
+    margin-left: 20px;
+    font-weight: 400;
+    font-style: normal;
+    /* animation: sideBarColor 2s infinite linear alternate; */
   }
-  #tag2:hover .bubble2 {
-    display: block; /* Show image when hovered over underlined words */
-    position: fixed;
-    top: 53vh;
-    left: 43vw;
-    z-index: 1000;
+  #sidebar h3:hover {
+    font-family: "Londrina Solid", sans-serif;
+    color: rgb(230, 174, 1);
   }
-  #tag3:hover .bubble3 {
-    display: block; /* Show image when hovered over underlined words */
-    position: fixed;
-    top: 25vh;
-    left: 75vw;
-    z-index: 1000;
+  #sidebar ul {
+      list-style: none;
+      padding: 0;
+      margin-left: 20px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
   }
-  #tag4:hover .bubble4 {
-    display: block; /* Show image when hovered over underlined words */
-    position: fixed;
-    top: 60vh;
-    left: 3vw;
-    z-index: 1000;
+  #sidebar li {
+      margin-top: 20px;
   }
-  #tag5:hover .bubble5 {
-    display: block; /* Show image when hovered over underlined words */
-    position: fixed;
-    top: 75vh;
-    left: 35vw;
-    z-index: 1000;
+  #sidebar .current {
+    font-family: "Londrina Solid", sans-serif;
+    font-size: 36px;
+    text-decoration: none;
+    color: rgb(230, 174, 1);
   }
-  #tag6:hover .bubble6 {
-    display: block; /* Show image when hovered over underlined words */
-    position: fixed;
-    top: 40vh;
-    left: 80vw;
-    z-index: 1000;
+  #sidebar a {
+    font-family: "Londrina Shadow", sans-serif;
+    font-size: 36px;
+    text-decoration: none;
+    color: black;
   }
-  #tag7:hover .bubble7 {
-    display: block; /* Show image when hovered over underlined words */
-    position: fixed;
-    top: 78vh;
-    left: 65vw;
-    z-index: 1000;
+  #sidebar a:hover {
+    font-family: "Londrina Solid", sans-serif;
+    color: rgb(230, 174, 1);
   }
-  .first-line:hover .underline:hover {
-    font-size: 7vw;
+  #sidebarTitle {
+    opacity: 0;
+    transition: opacity 0.5s ease;
   }
-  .other-lines:hover .underline:hover {
-    font-size: 4vw;
-  }
-  .sun {
-    position: absolute;
-    left: -200px;
-    top: -200px;
-    max-width: 500px; /* Adjust the maximum width of the image */
-    height: auto;
-    z-index: 0; /* Ensure the image appears above other elements */
-  }
-  .cloud {
-    position: absolute;
-    max-width: 200px; /* Adjust the maximum width of the image */
-    height: auto;
-    z-index: 900; /* Ensure the image appears above other elements */
-    animation: moveAround 40s infinite linear alternate; /* Animation properties */
-  }
-  .cloud1 {
-    position: absolute;
-    max-width: 300px; /* Adjust the maximum width of the image */
-    height: auto;
-    z-index: 900; /* Ensure the image appears above other elements */
-    animation: moveAround1 20s infinite linear alternate; /* Animation properties */
-  }
-  @keyframes moveAround {
-    0% {
-      top: 8vh;
-      left: 105vw;
-    }
+  /* @keyframes sideBarColor {
     100% {
-      top: 8vh;
-      left: -20vw;
+      color: rgb(230, 174, 1);
     }
-  }
-  @keyframes moveAround1 {
     0% {
-      top: 85vh;
-      left: -30vw;
+      color: black;
     }
-    100% {
-      top: 85vh;
-      left: 120vw;
-    }
-  }
+  } */
 </style>
 </head>
 <body>
-<div class="centered-text">
-  <p class="londrina-shadow-regular first-line">Hi, I'm <span class="underline" style="text-decoration: none;" id="tag0">Felix Yifei Wang<img class="bubble0" src="bubble0.png" alt="Web Development"></span>.</p>
-  <p class="londrina-shadow-regular other-lines">I’m an <span class="underline" id="tag1">engineer<img class="bubble1" src="bubble1.png" alt="Web Development"></span>, a <span class="underline" id="tag2">designer<img class="bubble2" src="bubble2.png" alt="UIUX Design"></span>, and a <span class="underline" id="tag3">founder<img class="bubble3" src="bubble3.png" alt="Startup"></span>.</p>
-  <p class="londrina-shadow-regular other-lines">I’m a <span class="underline" id="tag4">gamer<img class="bubble4" src="gamer.png" alt="Gamer"></span>, an <span class="underline" id="tag5">actor<img class="bubble5" src="theatre.png" alt="Actor"></span>, and a <span class="underline" id="tag6">squash player<img class="bubble6" src="squash.png" alt="Squash"></span>.</p>
-  <p class="londrina-shadow-regular other-lines">Want to know more about me? <span class="underline" id="tag7">Contact me<img class="bubble7" src="contact.png" alt="Contact"></span>!</p>
+<div id="sidebar">
+  <h3>F<span id="sidebarTitle">elix</span></h3>
+  <ul id="list">
+      <li><a href="index.html">Home</a></li>
+      <li class="current">Webapp Dev</li>
+      <li><a href="#">UIUX Design</a></li>
+      <li><a href="#">Startup</a></li>
+      <li><a href="#">Fun</a></li>
+  </ul>
 </div>
-<img class="sun" src="sun.gif" alt="Sun">
-<img class="cloud" src="cloud1.png" alt="Cloud">
-<img class="cloud1" src="cloud2.png" alt="Cloud">
+<div class="header">
+  <div class="title">Favorite Game List</div>
+</div>
+<div class="content">
+  <p class="subtitle">Games are my programming mentors and an important part of my life. I built this website so everyone can make a list of their favorite games and share it with others.</p>
+</div>
+<div class="content">
+  <p class="subtitle">Why This Initiative</p>
+  <p class="txt">While there are platforms where we can share our tastes in music, videos, and more, game platforms like Steam primarily act as digital stores. They are too heavy for the simple task of sharing. I want to build a place for people to simply share and discuss our favorite games.</p>
+  <img class="img" src="img1.jpg" alt="Interfaces">
+</div>
+<div class="content">
+  <p class="subtitle">Research and Design</p>
+  <p class="txt">I started by analyzing other websites to learn what makes them effective. This helped me understand the essential features that make user interfaces engaging and easy to use.</p>
+  <p class="txt">I decided to include key features such as the ability to favorite games, sort lists by popularity or release date, and a share function to send game lists to friends.</p>
+  <img class="img" src="img2.jpg" alt="Wireframe">
+</div>
+<div class="content">
+  <p class="subtitle">Development</p>
+  <p class="txt">Based on my findings, I decided to use React to build a list-based interface that's simple yet powerful. All features were completed as planned.</p>
+  <img class="img" src="img3.png" alt="Main page">
+  <img class="img" src="img4.png" alt="Sharing page">
+</div>
+<div class="content">
+  <p class="subtitle">Launch and Reflection</p>
+  <p class="txt">After completing the interface, I deployed the website using Vercel.</p>
+  <p class="txt">Through this React development project, I expanded my practical skills in building user interfaces using React library and gained experience on how to integrate more complex functionalities into the interface design.</p>
+</div>
+<div class="content">
+  <p class="txt">For more details and to experience the site firsthand, visit it  <a href="https://favoriting-games.vercel.app/" target="_blank">here</a></li>.</p>
+</div>
+<div class="button">
+  <button onclick="topFunction()" id="myBtn" title="Go to top">Back to Top</button>
+</div>
 <script>
   document.addEventListener('DOMContentLoaded', function() {
       var lastMouseX = 0; // Variable to store the last mouseX position
       var bodyElement = document.body; // Using body as the hover area
-      document.getElementById('tag0').addEventListener('click', function() {
-          window.location.href = 'path/to/local-page.html';
-      });
-
+      document.body.style.opacity = 0;
+      window.onload = function() {
+          document.body.style.transition = 'opacity 0.5s ease-in-out';
+          document.body.style.opacity = 1;
+      };
       bodyElement.addEventListener('mousemove', function(event) {
           var currentMouseX = event.clientX; // Get current mouseX position
 
@@ -233,6 +227,39 @@
           lastMouseX = currentMouseX; // Update lastMouseX position
       });
   });
+  document.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const href = this.href;
+          document.body.style.opacity = 0;
+
+          setTimeout(() => {
+              window.location.href = href;
+          }, 500); // Match the duration of the fade-out effect
+      });
+  });
+  document.getElementById('sidebar').addEventListener('click', function() {
+      const sidebar = this;
+      const sidebarTitle = document.getElementById('sidebarTitle');
+      const list = document.getElementById('list');
+      if (sidebar.style.width === "215px") {
+        sidebar.style.width = "75px";  // Double the width
+        sidebar.style.height = "92px";
+        sidebarTitle.style.opacity = "0";
+        list.style.opacity = "0";
+      } else {
+        sidebar.style.width = "215px";  // Set back to normal width
+        sidebar.style.height = "420px";
+        sidebarTitle.style.opacity = "1"; // Change back to original title after 1 second
+        setTimeout(() => {
+          list.style.opacity = "1";
+        }, 500);
+      }
+  });
+  function topFunction() {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+  }
 </script>
 </body>
 </html>
