@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Me</title>
+<link rel="icon" href="cursor.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Londrina+Shadow&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Londrina+Shadow&family=Londrina+Solid:wght@100;300;400;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+<style>
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    cursor: url('cursor.png'), auto;
+  }
+  .header {
+      text-align: center;
+      margin-top: 10vh;
+      margin-bottom: 20px;
+      text-align: left; /* Ensures content is centered */
+      margin-left: 25vw;
+  }
+  .title {
+      font-family: "Londrina Shadow", sans-serif;
+      font-size: 96px;
+      max-width: 60vw; /* Ensures better readability */
+      text-align: left; /* Text inside paragraphs should be left-aligned */
+      display: inline-block;
+  }
+  .title:hover {
+    font-family: "Londrina Solid", sans-serif;
+    color: rgb(230, 174, 1);
+  }
+  .content {
+      text-align: left; /* Ensures content is centered */
+      margin-top: 15vh;
+      margin-left: 25vw;
+  }
+  .content a {
+    font-weight: bolder;
+    font-family: "Londrina Solid", sans-serif;
+    font-size: 28px;
+    text-decoration: none;
+    color: black;
+    cursor: inherit;
+  }
+  .content a:hover {
+    color: rgb(230, 174, 1)
+  }
+  .button {
+      text-align: center; /* Ensures content is centered */
+      margin-top: 15vh;
+      margin-bottom: 10vh;
+  }
+  .content .img {
+    max-width: 70vw;
+    margin-left: -10vw;
+    margin-top: 5vh;
+    margin-bottom: 3vh;
+    border-top: 3px black solid;
+    border-left: 3px black solid;
+    border-right: 9px black solid;
+    border-bottom: 9px black solid;
+  }
+  .subtitle {
+      font-family: "Roboto", sans-serif;
+      margin-bottom: 20px; /* Space around paragraphs */
+      font-size: 32px;
+      line-height: 1.6;
+      max-width: 50vw; /* Ensures better readability */
+      text-align: left; /* Text inside paragraphs should be left-aligned */
+      display: block;
+  }
+  .txt {
+      font-family: "Roboto", sans-serif;
+      margin-bottom: 20px; /* Space around paragraphs */
+      font-size: 20px;
+      font-weight: 300;
+      line-height: 1.6;
+      max-width: 50vw; /* Ensures better readability */
+      text-align: left; /* Text inside paragraphs should be left-aligned */
+      display: block;
+  }
+  video {
+    max-width: 70vw;
+    margin-left: -10vw;
+    margin-top: 5vh;
+    margin-bottom: 3vh;
+    border-top: 3px black solid;
+    border-left: 3px black solid;
+    border-right: 9px black solid;
+    border-bottom: 9px black solid;
+  }
+  #myBtn {
+    align-items: center;
+    border: none; /* No borders */
+    outline: none; /* Remove outline */
+    background-color: white; /* Set a background color */
+    font-family: "Londrina Shadow", sans-serif;
+    font-size: 48px;
+    cursor: inherit;
+  }
+
+  #myBtn:hover {
+    font-family: "Londrina Solid", sans-serif;
+    color: rgb(230, 174, 1);
+  }
+  #sidebar {
+    position: fixed;
+    left: 30px;
+    top: 30px;
+    width: 75px;
+    height: 92px;
+    background-color: white;
+    border-top: 1px black solid;
+    border-left: 1px black solid;
+    border-right: 3px black solid;
+    border-bottom: 3px black solid;
+    transition: width 1s ease, height 1s ease;
+  }
+  #sidebar h3 {
+    font-family: "Londrina Shadow", sans-serif;
+    font-size: 64px;
+    margin: 0;
+    margin-left: 20px;
+    font-weight: 400;
+    font-style: normal;
+    /* animation: sideBarColor 2s infinite linear alternate; */
+  }
+  #sidebar h3:hover {
+    font-family: "Londrina Solid", sans-serif;
+    color: rgb(230, 174, 1);
+  }
+  #sidebar ul {
+      list-style: none;
+      padding: 0;
+      margin-left: 20px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+  }
+  #sidebar li {
+      margin-top: 20px;
+  }
+  #sidebar .current {
+    font-family: "Londrina Solid", sans-serif;
+    font-size: 36px;
+    text-decoration: none;
+    color: rgb(230, 174, 1);
+  }
+  #sidebar a {
+    font-family: "Londrina Shadow", sans-serif;
+    font-size: 36px;
+    text-decoration: none;
+    color: black;
+    cursor: inherit;
+  }
+  #sidebar a:hover {
+    font-family: "Londrina Solid", sans-serif;
+    color: rgb(230, 174, 1);
+  }
+  #sidebarTitle {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+  /* @keyframes sideBarColor {
+    100% {
+      color: rgb(230, 174, 1);
+    }
+    0% {
+      color: black;
+    }
+  } */
+</style>
+</head>
+<body>
+<div id="sidebar">
+  <h3>F<span id="sidebarTitle">elix</span></h3>
+  <ul id="list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="case1.html">Webapp Dev</a></li>
+      <li><a href="case2.html">UIUX Design</a></li>
+      <li><a href="case3.html">Startup</a></li>
+      <li class="current">Fun</li>
+  </ul>
+</div>
+<div class="header">
+  <div class="title">About Me</div>
+</div>
+<div class="content">
+  <p class="subtitle">I was born in 2000 in Beijing, China. I am about to graduate from Brown University. I love tech and art. I love to build cool things.</p>
+  <img class="img" style="width: 40vw; margin-left: 5vw;" src="img10.JPG" alt="Photo">
+</div>
+<div class="content">
+  <p class="subtitle">Things I like:</p>
+  <p class="txt">Baldur's Gate / Chef's Table at Brooklyn Fare / DAMN. / Darkest Hour / EVA / 黑梦 / Heroes of Might and Magic / home-cooked meals / John Galliano's designs at Dior / 狂人日记 / The Lovers / 鲁菜 / Mme Kupka among Verticals / Pokémon / Steve Jobs hosting an Apple keynote / working from bed</p>
+  <p class="txt">...</p>
+</div>
+<div class="content">
+  <p class="subtitle">Thinks I dislike:</p>
+  <p class="txt">alcohol / art criticism / commuting / debates / Elon Musk talking nonsense / Gucci / Japanese food that just piles up ingredients / Korean food / many new-gen rappers / Monster Hunter / NFT art / pointless parties / Ready Player One / shooter games / Supreme</p>
+  <p class="txt">...</p>
+</div>
+<div class="content">
+  <img class="img" src="gif3.gif" style="width: 40vw; border: none; margin-left: 5vw;"  alt="Dividing line">
+</div>
+<div class="content" id="i1">
+  <div class="title" style="margin-bottom: 5vh;">Gamer</div>
+  <p class="txt">Besides classic built-in games like Tetris or Minesweeper, my first real dive into video games was with Warcraft III. Fast forward to today, and I've been gaming for nearly 20 years. Here’s a list of my favorite games on different platforms:</p>
+  <p class="txt"><b>PC </b> Heroes of Might and Magic / Baldur's Gate / Terraria / Civilization / Elden Ring</p>
+  <p class="txt"><b>PlayStation</b> Sekiro / Detroit: Become Human / Red Dead Redemption / God of War</p>
+  <p class="txt"><b>Switch</b> Pokémon / Zelda / Fire Emblem / Animal Crossing / Splatoon / Hades</p>
+  <p class="txt"><b>Mobile </b> Infinity Blade / Genshin Impact / Arknights / Teamfight Tactics / Reigns</p>
+  <img class="img" src="collage.png" alt="Collage">
+</div>
+<div class="content">
+  <img class="img" src="gif3.gif" style="width: 40vw; border: none; margin-left: 5vw;"  alt="Dividing line">
+</div>
+<div class="content" id="i2">
+  <div class="title" style="margin-bottom: 5vh;">Actor</div>
+  <p class="txt">I've been acting in plays since I was 15, and it's been 8 years now. I've managed to be in at least one play every year. Some of the productions I've been part of include "The Young Lions", an adaptation of "Romeo and Juliet", a film adaptation of "Broadcast Time", and many original plays. I've awared the Most Popular Actor at several theater festivals. For me, theater is just like reading, but more immersive. It's also helped shape my passion for role-playing experiences in games.</p>
+  <img class="img" style="width: 20vw; margin-left: 15vw;" src="img11.JPG" alt="Award">
+</div>
+<div class="content">
+  <img class="img" src="gif3.gif" style="width: 40vw; border: none; margin-left: 5vw;"  alt="Dividing line">
+</div>
+<div class="content" id="i3">
+  <div class="title" style="margin-bottom: 5vh;">Squash</div>
+  <p class="txt">I'm actually into quite a few sports, but squash is the most representative for me. I first started playing squash when I began university, invited by a friend who's very important to me, and we ended up playing quite often. During the pandemic, I studied for a while at Peking University's Guanghua School of Management and even led the Guanghua team in a squash competition.</p>
+  <p class="txt">I dabble in many sports but wouldn't call myself an expert in any. I was a swimmer as a kid, but unfortunately, I developed myocarditis in elementary school. The initial diagnosis was that I could never engage in intense physical activity again. However, after rehabilitation, I mostly recovered, though competitive sports were off the table. In high school, I loved hitting the gym, but now, with work being so busy, I mostly exercise just to keep fit.</p>
+  <video style="width: 40vw; margin-left: 3vw;" autoplay loop muted>
+    <source src="squash.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+<div class="content">
+  <img class="img" src="gif3.gif" style="width: 40vw; border: none; margin-left: 5vw;"  alt="Dividing line">
+</div>
+<div class="content" id="i4">
+  <div class="title" style="margin-bottom: 5vh;">Contact</div>
+  <p class="txt">Don't just get to know me through the text and pictures here. Come chat with me! </p>
+  <p class="txt"><b>Phone </b> +1 401 654 8567 / +86 187 0120 4466</p>
+  <p class="txt"><b>Email </b> felix@dreamin.land / wangyifeifelix@gmail.com</p>
+  <p class="txt"><b>Linked</b><a style="font-size: 42px;"href="https://www.linkedin.com/in/felix-wang-dreamin/">In</a></p>
+</div>
+<div class="button">
+  <button onclick="topFunction()" id="myBtn" title="Go to top">Back to Top</button>
+</div>
+<script>
+  flag = true;
+  flag1 = false;
+  document.addEventListener('DOMContentLoaded', function() {
+      var lastMouseX = 0; // Variable to store the last mouseX position
+      var bodyElement = document.body; // Using body as the hover area
+      document.body.style.opacity = 0;
+      window.onload = function() {
+          document.body.style.transition = 'opacity 0.5s ease-in-out';
+          document.body.style.opacity = 1;
+      };
+      bodyElement.addEventListener('mousemove', function(event) {
+          var currentMouseX = event.clientX; // Get current mouseX position
+
+          if (currentMouseX < lastMouseX) {
+              // Mouse is moving left
+              if (flag1) {
+                bodyElement.style.cursor = "url('cursor1_left.png'), auto";
+              } else {
+                bodyElement.style.cursor = "url('cursor_left.png'), auto";
+              }
+              flag = false;
+
+          } else if (currentMouseX > lastMouseX) {
+              // Mouse is moving right or not moving horizontally
+              if (flag1) {
+                bodyElement.style.cursor = "url('cursor1.png'), auto";
+              } else {
+                bodyElement.style.cursor = "url('cursor.png'), auto";
+              }  // Default cursor or other cursor
+              flag = true;
+          }
+
+          lastMouseX = currentMouseX; // Update lastMouseX position
+      });
+      bodyElement.addEventListener('mousedown', function(event) {
+        var currentMouseX = event.clientX; // Get current mouseX position on mouse down
+        flag1 = true;
+        if (flag) {
+            bodyElement.style.cursor = "url('cursor1.png'), auto";
+        } else {
+            bodyElement.style.cursor = "url('cursor1_left.png'), auto";
+        }
+        // bodyElement.style.cursor = "url('cursor1.png'), auto";
+
+        // Optional: revert to default cursor on mouseup if needed
+        bodyElement.addEventListener('mouseup', function() {
+          flag1 = false;
+          if (flag) {
+              bodyElement.style.cursor = "url('cursor.png'), auto";
+          } else {
+              bodyElement.style.cursor = "url('cursor_left.png'), auto";
+          }
+        });
+      });
+  });
+  document.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const href = this.href;
+          document.body.style.opacity = 0;
+
+          setTimeout(() => {
+              window.location.href = href;
+          }, 500); // Match the duration of the fade-out effect
+      });
+  });
+  document.getElementById('sidebar').addEventListener('click', function() {
+      const sidebar = this;
+      const sidebarTitle = document.getElementById('sidebarTitle');
+      const list = document.getElementById('list');
+      if (sidebar.style.width === "215px") {
+        sidebar.style.width = "75px";  // Double the width
+        sidebar.style.height = "92px";
+        sidebarTitle.style.opacity = "0";
+        list.style.opacity = "0";
+      } else {
+        sidebar.style.width = "215px";  // Set back to normal width
+        sidebar.style.height = "420px";
+        sidebarTitle.style.opacity = "1"; // Change back to original title after 1 second
+        setTimeout(() => {
+          list.style.opacity = "1";
+        }, 500);
+      }
+  });
+  function topFunction() {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+  }
+</script>
+</body>
+</html>
