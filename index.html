@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio</title>
+<link rel="icon" href="cursor.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Londrina+Shadow&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Londrina+Shadow&family=Londrina+Solid:wght@100;300;400;900&display=swap" rel="stylesheet">
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    overflow: hidden;
+    cursor: url('cursor.png'), auto;
+  }
+  .centered-text {
+    text-align: center;
+  }
+  .londrina-shadow-regular {
+    font-family: "Londrina Shadow", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  .first-line {
+    font-size: 6vw; /* Adjust the font size for the first line */
+    line-height: 0.3; /* Adjust the line height */
+  }
+  .other-lines {
+    font-size: 3vw; /* Adjust the font size for other lines */
+    line-height: 1; /* Adjust the line height */
+  }
+  .underline {
+    text-decoration: underline;
+    text-decoration-thickness: 2px; /* Adjust the thickness of the underline */
+    text-decoration-skip-ink: none;
+  }
+  .underline:hover {
+    text-decoration: none; /* Remove underline on hover */
+    font-family: "Londrina Solid", sans-serif;
+    color: rgb(230, 174, 1);
+  }
+  .bubble0 {
+    display: none; /* Hide image by default */
+    max-width: 22vw;
+    height: auto;
+    margin-top: 10px; /* Adjust the spacing between text and image */
+  }
+  .bubble1 {
+    display: none; /* Hide image by default */
+    max-width: 20vw;
+    height: auto;
+    margin-top: 10px; /* Adjust the spacing between text and image */
+  }
+  .bubble2 {
+    display: none; /* Hide image by default */
+    max-width: 25vw;
+    height: auto;
+    margin-top: 10px; /* Adjust the spacing between text and image */
+  }
+  .bubble3 {
+    display: none; /* Hide image by default */
+    max-width: 20vw;
+    height: auto;
+    margin-top: 10px; /* Adjust the spacing between text and image */
+  }
+  .bubble4 {
+    display: none; /* Hide image by default */
+    max-width: 20vw;
+    height: auto;
+    margin-top: 10px; /* Adjust the spacing between text and image */
+  }
+  .bubble5 {
+    display: none; /* Hide image by default */
+    max-width: 15vw;
+    height: auto;
+    margin-top: 10px; /* Adjust the spacing between text and image */
+  }
+  .bubble6 {
+    display: none; /* Hide image by default */
+    max-width: 15vw;
+    height: auto;
+    margin-top: 10px; /* Adjust the spacing between text and image */
+  }
+  .bubble7 {
+    display: none; /* Hide image by default */
+    max-width: 8vw;
+    height: auto;
+    margin-top: 10px; /* Adjust the spacing between text and image */
+  }
+  #tag0:hover .bubble0 {
+    display: block; /* Show image when hovered over underlined words */
+    position: fixed;
+    top: 6vh;
+    left: 40vw;
+    z-index: 1000;
+  }
+  #tag1:hover .bubble1 {
+    display: block; /* Show image when hovered over underlined words */
+    position: fixed;
+    top: 33vh;
+    left: 2vw;
+    z-index: 1000;
+  }
+  #tag2:hover .bubble2 {
+    display: block; /* Show image when hovered over underlined words */
+    position: fixed;
+    top: 53vh;
+    left: 43vw;
+    z-index: 1000;
+  }
+  #tag3:hover .bubble3 {
+    display: block; /* Show image when hovered over underlined words */
+    position: fixed;
+    top: 25vh;
+    left: 75vw;
+    z-index: 1000;
+  }
+  #tag4:hover .bubble4 {
+    display: block; /* Show image when hovered over underlined words */
+    position: fixed;
+    top: 60vh;
+    left: 3vw;
+    z-index: 1000;
+  }
+  #tag5:hover .bubble5 {
+    display: block; /* Show image when hovered over underlined words */
+    position: fixed;
+    top: 75vh;
+    left: 35vw;
+    z-index: 1000;
+  }
+  #tag6:hover .bubble6 {
+    display: block; /* Show image when hovered over underlined words */
+    position: fixed;
+    top: 40vh;
+    left: 80vw;
+    z-index: 1000;
+  }
+  #tag7:hover .bubble7 {
+    display: block; /* Show image when hovered over underlined words */
+    position: fixed;
+    top: 78vh;
+    left: 65vw;
+    z-index: 1000;
+  }
+  .first-line:hover .underline:hover {
+    font-size: 7vw;
+  }
+  .other-lines:hover .underline:hover {
+    font-size: 4vw;
+  }
+  .sun {
+    position: absolute;
+    left: -200px;
+    top: -200px;
+    max-width: 500px; /* Adjust the maximum width of the image */
+    height: auto;
+    z-index: 0; /* Ensure the image appears above other elements */
+  }
+  .cloud {
+    position: absolute;
+    max-width: 200px; /* Adjust the maximum width of the image */
+    height: auto;
+    z-index: 900; /* Ensure the image appears above other elements */
+    animation: moveAround 40s infinite linear alternate; /* Animation properties */
+  }
+  .cloud1 {
+    position: absolute;
+    max-width: 300px; /* Adjust the maximum width of the image */
+    height: auto;
+    z-index: 900; /* Ensure the image appears above other elements */
+    animation: moveAround1 20s infinite linear alternate; /* Animation properties */
+  }
+  @keyframes moveAround {
+    0% {
+      top: 8vh;
+      left: 105vw;
+    }
+    100% {
+      top: 8vh;
+      left: -20vw;
+    }
+  }
+  @keyframes moveAround1 {
+    0% {
+      top: 85vh;
+      left: -30vw;
+    }
+    100% {
+      top: 85vh;
+      left: 120vw;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="centered-text">
+  <p class="londrina-shadow-regular first-line">Hi, I'm <span class="underline" style="text-decoration: none;" id="tag0">Felix Yifei Wang<img class="bubble0" src="bubble0.png" alt="Web Development"></span>.</p>
+  <p class="londrina-shadow-regular other-lines">I’m an <span class="underline" id="tag1">engineer<img class="bubble1" src="bubble1.png" alt="Web Development"></span>, a <span class="underline" id="tag2">designer<img class="bubble2" src="bubble2.png" alt="UIUX Design"></span>, and a <span class="underline" id="tag3">founder<img class="bubble3" src="bubble3.png" alt="Startup"></span>.</p>
+  <p class="londrina-shadow-regular other-lines">I’m a <span class="underline" id="tag4">gamer<img class="bubble4" src="gamer.png" alt="Gamer"></span>, an <span class="underline" id="tag5">actor<img class="bubble5" src="theatre.png" alt="Actor"></span>, and a <span class="underline" id="tag6">squash player<img class="bubble6" src="squash.png" alt="Squash"></span>.</p>
+  <p class="londrina-shadow-regular other-lines">Want to know more about me? <span class="underline" id="tag7">Contact me<img class="bubble7" src="contact.png" alt="Contact"></span>!</p>
+</div>
+<img class="sun" src="sun.gif" alt="Sun">
+<img class="cloud" src="cloud1.png" alt="Cloud">
+<img class="cloud1" src="cloud2.png" alt="Cloud">
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+      var lastMouseX = 0; // Variable to store the last mouseX position
+      var bodyElement = document.body; // Using body as the hover area
+      document.getElementById('tag0').addEventListener('click', function() {
+          window.location.href = 'general.html';
+      });
+
+      bodyElement.addEventListener('mousemove', function(event) {
+          var currentMouseX = event.clientX; // Get current mouseX position
+
+          if (currentMouseX < lastMouseX) {
+              // Mouse is moving left
+              bodyElement.style.cursor = "url('cursor_left.png'), auto";
+          } else if (currentMouseX > lastMouseX) {
+              // Mouse is moving right or not moving horizontally
+              bodyElement.style.cursor = "url('cursor.png'), auto";  // Default cursor or other cursor
+          }
+
+          lastMouseX = currentMouseX; // Update lastMouseX position
+      });
+  });
+</script>
+</body>
+</html>
