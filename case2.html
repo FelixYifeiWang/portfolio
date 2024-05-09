@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UIUX Design</title>
+<link rel="icon" href="cursor.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Londrina+Shadow&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Londrina+Shadow&family=Londrina+Solid:wght@100;300;400;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+<style>
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    cursor: url('cursor.png'), auto;
+  }
+  .header {
+      text-align: center;
+      margin-top: 10vh;
+      margin-bottom: 20px;
+      text-align: left; /* Ensures content is centered */
+      margin-left: 25vw;
+  }
+  .title {
+      font-family: "Londrina Shadow", sans-serif;
+      font-size: 96px;
+      max-width: 60vw; /* Ensures better readability */
+      text-align: left; /* Text inside paragraphs should be left-aligned */
+      display: inline-block;
+  }
+  .title:hover {
+    font-family: "Londrina Solid", sans-serif;
+    color: rgb(230, 174, 1);
+  }
+  .content {
+      text-align: left; /* Ensures content is centered */
+      margin-top: 15vh;
+      margin-left: 25vw;
+  }
+  .content a {
+    font-weight: bolder;
+    font-family: "Londrina Solid", sans-serif;
+    font-size: 28px;
+    text-decoration: none;
+    color: black;
+  }
+  .content a:hover {
+    color: rgb(230, 174, 1)
+  }
+  .button {
+      text-align: center; /* Ensures content is centered */
+      margin-top: 15vh;
+      margin-bottom: 10vh;
+  }
+  .content .img {
+    max-width: 70vw;
+    margin-left: -10vw;
+    margin-top: 5vh;
+    margin-bottom: 3vh;
+    border-top: 3px black solid;
+    border-left: 3px black solid;
+    border-right: 9px black solid;
+    border-bottom: 9px black solid;
+  }
+  .subtitle {
+      font-family: "Roboto", sans-serif;
+      margin-bottom: 20px; /* Space around paragraphs */
+      font-size: 32px;
+      line-height: 1.6;
+      max-width: 50vw; /* Ensures better readability */
+      text-align: left; /* Text inside paragraphs should be left-aligned */
+      display: block;
+  }
+  .txt {
+      font-family: "Roboto", sans-serif;
+      margin-bottom: 20px; /* Space around paragraphs */
+      font-size: 20px;
+      font-weight: 300;
+      line-height: 1.6;
+      max-width: 50vw; /* Ensures better readability */
+      text-align: left; /* Text inside paragraphs should be left-aligned */
+      display: block;
+  }
+  #myBtn {
+    align-items: center;
+    border: none; /* No borders */
+    outline: none; /* Remove outline */
+    background-color: white; /* Set a background color */
+    font-family: "Londrina Shadow", sans-serif;
+    font-size: 48px;
+    cursor: pointer;
+  }
+
+  #myBtn:hover {
+    font-family: "Londrina Solid", sans-serif;
+    color: rgb(230, 174, 1);
+  }
+  #sidebar {
+    position: fixed;
+    left: 30px;
+    top: 30px;
+    width: 75px;
+    height: 92px;
+    border-top: 1px black solid;
+    border-left: 1px black solid;
+    border-right: 3px black solid;
+    border-bottom: 3px black solid;
+    transition: width 1s ease, height 1s ease;
+  }
+  #sidebar h3 {
+    font-family: "Londrina Shadow", sans-serif;
+    font-size: 64px;
+    margin: 0;
+    margin-left: 20px;
+    font-weight: 400;
+    font-style: normal;
+    /* animation: sideBarColor 2s infinite linear alternate; */
+  }
+  #sidebar h3:hover {
+    font-family: "Londrina Solid", sans-serif;
+    color: rgb(230, 174, 1);
+  }
+  #sidebar ul {
+      list-style: none;
+      padding: 0;
+      margin-left: 20px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+  }
+  #sidebar li {
+      margin-top: 20px;
+  }
+  #sidebar .current {
+    font-family: "Londrina Solid", sans-serif;
+    font-size: 36px;
+    text-decoration: none;
+    color: rgb(230, 174, 1);
+  }
+  #sidebar a {
+    font-family: "Londrina Shadow", sans-serif;
+    font-size: 36px;
+    text-decoration: none;
+    color: black;
+  }
+  #sidebar a:hover {
+    font-family: "Londrina Solid", sans-serif;
+    color: rgb(230, 174, 1);
+  }
+  #sidebarTitle {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+  /* @keyframes sideBarColor {
+    100% {
+      color: rgb(230, 174, 1);
+    }
+    0% {
+      color: black;
+    }
+  } */
+</style>
+</head>
+<body>
+<div id="sidebar">
+  <h3>F<span id="sidebarTitle">elix</span></h3>
+  <ul id="list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="case1.html">Webapp Dev</a></li>
+      <li class="current">UIUX Design</li>
+      <li><a href="case3.html">Startup</a></li>
+      <li><a href="general.html">Fun</a></li>
+  </ul>
+</div>
+<div class="header">
+  <div class="title">Automatic Document Creation @ Driver AI</div>
+</div>
+<div class="content">
+  <p class="subtitle">Driver AI uses gen-AI technology to create technical documentation in real-time. The challenge is how to guide users to interact with the AI agent using prompts.</p>
+</div>
+<div class="content">
+  <p class="subtitle">Why This Initiative</p>
+  <p class="txt">Although generative AI has brought disruptive value to various fields, a common problem is that most users are not familiar with how to interact with generative AI models. Giving commands through language prompts is very different from traditional GUIs, and prompt engineering can lead to vastly different outcomes. Driver AI's product also faces this challenge. My team, including <a href="https://www.linkedin.com/in/bumjin-joo/">Bumjin</a> and <a href="https://www.linkedin.com/in/runfeng-l-a41b6a204/">Runfeng</a>, aims to modify Driver AI's existing UIUX to address this issue.</p>
+  <img class="img" src="img5.png" alt="Original Page">
+</div>
+<div class="content">
+  <p class="subtitle">Design and Iteration</p>
+  <p class="txt">Our initial design involved sketches and low-fidelity prototypes, emphasizing ease of use. We integrated features like a "Don't know where to start?" button and keyword options to help users in writing effective prompts. Each iteration refined these tools based on feedback from our instructors and the engineering lead at Driver AI, enhancing clarity and usability.</p>
+  <img class="img" src="img6.png" alt="LoFi">
+  <img class="img" src="img7.png" alt="LoFi">
+</div>
+<div class="content">
+  <p class="subtitle">High-Fidelity Prototyping</p>
+  <p class="txt">The final phase involved creating a high-fidelity prototype with a polished visual style. This version incorporated minor improvements, further simplifying prompt enhancement and document editing processes.</p>
+  <img class="img" style="width: 40vw; margin-left: 5vw;" src="img8.png" alt="HiFi">
+  <img class="img" src="img9.png" alt="HiFi">
+  <p class="txt" style="font-size: 16px;">* Due to confidentiality reasons, more design details cannot be disclosed publicly.</p>
+</div>
+<div class="content">
+  <p class="subtitle">Conclusion</p>
+  <p class="txt">Our design successfully met the needs of our client, Driver AI. They were pleased with our work and plan to implement revisions based on it. </p>
+  <p class="txt">This experience underscored the value of iterative design and user feedback in creating practical, user-centric solutions.</p>
+</div>
+<div class="content">
+  <p class="txt">For more details and to experience the site firsthand, visit the official site of Driver AI <a href="https://www.driverai.com/" target="_blank">here</a></li>.</p>
+</div>
+<div class="button">
+  <button onclick="topFunction()" id="myBtn" title="Go to top">Back to Top</button>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+      var lastMouseX = 0; // Variable to store the last mouseX position
+      var bodyElement = document.body; // Using body as the hover area
+      document.body.style.opacity = 0;
+      window.onload = function() {
+          document.body.style.transition = 'opacity 0.5s ease-in-out';
+          document.body.style.opacity = 1;
+      };
+      bodyElement.addEventListener('mousemove', function(event) {
+          var currentMouseX = event.clientX; // Get current mouseX position
+
+          if (currentMouseX < lastMouseX) {
+              // Mouse is moving left
+              bodyElement.style.cursor = "url('cursor_left.png'), auto";
+          } else if (currentMouseX > lastMouseX) {
+              // Mouse is moving right or not moving horizontally
+              bodyElement.style.cursor = "url('cursor.png'), auto";  // Default cursor or other cursor
+          }
+
+          lastMouseX = currentMouseX; // Update lastMouseX position
+      });
+  });
+  document.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const href = this.href;
+          document.body.style.opacity = 0;
+
+          setTimeout(() => {
+              window.location.href = href;
+          }, 500); // Match the duration of the fade-out effect
+      });
+  });
+  document.getElementById('sidebar').addEventListener('click', function() {
+      const sidebar = this;
+      const sidebarTitle = document.getElementById('sidebarTitle');
+      const list = document.getElementById('list');
+      if (sidebar.style.width === "215px") {
+        sidebar.style.width = "75px";  // Double the width
+        sidebar.style.height = "92px";
+        sidebarTitle.style.opacity = "0";
+        list.style.opacity = "0";
+      } else {
+        sidebar.style.width = "215px";  // Set back to normal width
+        sidebar.style.height = "420px";
+        sidebarTitle.style.opacity = "1"; // Change back to original title after 1 second
+        setTimeout(() => {
+          list.style.opacity = "1";
+        }, 500);
+      }
+  });
+  function topFunction() {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+  }
+</script>
+</body>
+</html>

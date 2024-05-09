@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Startup</title>
+<link rel="icon" href="cursor.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Londrina+Shadow&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Londrina+Shadow&family=Londrina+Solid:wght@100;300;400;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+<style>
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    cursor: url('cursor.png'), auto;
+  }
+  .header {
+      text-align: center;
+      margin-top: 10vh;
+      margin-bottom: 20px;
+      text-align: left; /* Ensures content is centered */
+      margin-left: 25vw;
+  }
+  .title {
+      font-family: "Londrina Shadow", sans-serif;
+      font-size: 96px;
+      max-width: 60vw; /* Ensures better readability */
+      text-align: left; /* Text inside paragraphs should be left-aligned */
+      display: inline-block;
+  }
+  .title:hover {
+    font-family: "Londrina Solid", sans-serif;
+    color: rgb(230, 174, 1);
+  }
+  .content {
+      text-align: left; /* Ensures content is centered */
+      margin-top: 15vh;
+      margin-left: 25vw;
+  }
+  .content a {
+    font-weight: bolder;
+    font-family: "Londrina Solid", sans-serif;
+    font-size: 28px;
+    text-decoration: none;
+    color: black;
+  }
+  .content a:hover {
+    color: rgb(230, 174, 1)
+  }
+  .button {
+      text-align: center; /* Ensures content is centered */
+      margin-top: 15vh;
+      margin-bottom: 10vh;
+  }
+  .content .img {
+    max-width: 70vw;
+    margin-left: -10vw;
+    margin-top: 5vh;
+    margin-bottom: 3vh;
+    border-top: 3px black solid;
+    border-left: 3px black solid;
+    border-right: 9px black solid;
+    border-bottom: 9px black solid;
+  }
+  video {
+    max-width: 70vw;
+    margin-left: -10vw;
+    margin-top: 5vh;
+    margin-bottom: 3vh;
+    border-top: 3px black solid;
+    border-left: 3px black solid;
+    border-right: 9px black solid;
+    border-bottom: 9px black solid;
+  }
+  iframe {
+    width: 70vw;
+    height: 39.375vw;
+    margin-left: -10vw;
+    margin-top: 5vh;
+    margin-bottom: 3vh;
+    border-top: 3px black solid;
+    border-left: 3px black solid;
+    border-right: 9px black solid;
+    border-bottom: 9px black solid;
+  }
+  .subtitle {
+      font-family: "Roboto", sans-serif;
+      margin-bottom: 20px; /* Space around paragraphs */
+      font-size: 32px;
+      line-height: 1.6;
+      max-width: 50vw; /* Ensures better readability */
+      text-align: left; /* Text inside paragraphs should be left-aligned */
+      display: block;
+  }
+  .txt {
+      font-family: "Roboto", sans-serif;
+      margin-bottom: 20px; /* Space around paragraphs */
+      font-size: 20px;
+      font-weight: 300;
+      line-height: 1.6;
+      max-width: 50vw; /* Ensures better readability */
+      text-align: left; /* Text inside paragraphs should be left-aligned */
+      display: block;
+  }
+  #myBtn {
+    align-items: center;
+    border: none; /* No borders */
+    outline: none; /* Remove outline */
+    background-color: white; /* Set a background color */
+    font-family: "Londrina Shadow", sans-serif;
+    font-size: 48px;
+    cursor: pointer;
+  }
+
+  #myBtn:hover {
+    font-family: "Londrina Solid", sans-serif;
+    color: rgb(230, 174, 1);
+  }
+  #sidebar {
+    position: fixed;
+    left: 30px;
+    top: 30px;
+    width: 75px;
+    height: 92px;
+    border-top: 1px black solid;
+    border-left: 1px black solid;
+    border-right: 3px black solid;
+    border-bottom: 3px black solid;
+    transition: width 1s ease, height 1s ease;
+  }
+  #sidebar h3 {
+    font-family: "Londrina Shadow", sans-serif;
+    font-size: 64px;
+    margin: 0;
+    margin-left: 20px;
+    font-weight: 400;
+    font-style: normal;
+    /* animation: sideBarColor 2s infinite linear alternate; */
+  }
+  #sidebar h3:hover {
+    font-family: "Londrina Solid", sans-serif;
+    color: rgb(230, 174, 1);
+  }
+  #sidebar ul {
+      list-style: none;
+      padding: 0;
+      margin-left: 20px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+  }
+  #sidebar li {
+      margin-top: 20px;
+  }
+  #sidebar .current {
+    font-family: "Londrina Solid", sans-serif;
+    font-size: 36px;
+    text-decoration: none;
+    color: rgb(230, 174, 1);
+  }
+  #sidebar a {
+    font-family: "Londrina Shadow", sans-serif;
+    font-size: 36px;
+    text-decoration: none;
+    color: black;
+  }
+  #sidebar a:hover {
+    font-family: "Londrina Solid", sans-serif;
+    color: rgb(230, 174, 1);
+  }
+  #sidebarTitle {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+  /* @keyframes sideBarColor {
+    100% {
+      color: rgb(230, 174, 1);
+    }
+    0% {
+      color: black;
+    }
+  } */
+</style>
+</head>
+<body>
+<div id="sidebar">
+  <h3>F<span id="sidebarTitle">elix</span></h3>
+  <ul id="list">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="case1.html">Webapp Dev</a></li>
+    <li><a href="case2.html">UIUX Design</a></li>
+    <li class="current">Startup</li>
+    <li><a href="general.html">Fun</a></li>
+  </ul>
+</div>
+<div class="header">
+  <div class="title">Dream!N</div>
+</div>
+<div class="content">
+  <p class="subtitle">The technical barrier to game content creation is very high. Our mission is to lower these barriers and redefine the traditional gaming experience through gen-AI.</p>
+</div>
+<div class="content">
+  <p class="subtitle">Why This Initiative</p>
+  <p class="txt">Although today's gaming industry has produced a large amount of high-quality content, for the average game lover, it‘s still almost impossible to express their imagination through games. </p>
+  <p class="txt">Every form of content goes through a process of decentralization, just as we have seen with novels to Twitter, professional photography to Instagram, and movies to YouTube and TikTok. We believe that gaming too will reach such flourishing diversity, and we are the drivers behind.</p>
+  <img class="img" src="img1.jpg" alt="Interfaces">
+</div>
+<div class="content">
+  <p class="subtitle">History</p>
+  <p class="txt">Our company was established in mid-2022. In the initial months, the generative AI boom had not yet arrived, and our vision lacked a suitable technological breakthrough to support it, resulting in slow progress during this period. Even so, our capabilities and passion helped us attract investments and financial support from prominent institutions such as YC China, Brown Venture Prize, Amazon Web Services, and OpenAI.</p>
+</div>
+<div class="content">
+  <p class="subtitle">First Attempt</p>
+  <p class="txt">After the surge in generative AI technology, we quickly integrated it into our product design. Within three quarters, we launched the beta test of our first product. It's an AI-driven game creation platform that allows users to create and share games in just minutes using only human language, with no technical barriers.</p>
+  <p class="txt">During the three-month beta test, over 3,000 games were created and experienced millions of times in total. The 7-day retention rate was 26%, with a second-week retention of 46%, and the average session time 36 minutes. Our data significantly outperformed similar competitors.</p>
+  <iframe src="https://www.youtube.com/embed/b8Zba4JSr6g?si=8ixxCH-LWjj7yl5d" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+<div class="content">
+  <p class="subtitle">Latest Update</p>
+  <p class="txt">In our last beta, we also identified some issues. Even though we eliminated technical barriers, most users were still unable to create a complete, high-quality game. This is because designing a game is equally complex. Therefore, in our latest product, we have transformed the product from a game platform into a game itself - <i><b>Echo of Mobius</b></i>.</p>
+  <p class="txt">Although it's a game, as developers, we only develop the framework and set the rules. All game characters and events are still created by our players, who adventure, grow, and interact with the characters they create. This approach makes the creation of game content even more lightweight and, under a unified rule system, allows users’ creations to be better shared and experienced.</p>
+  <video autoplay loop muted>
+    <source src="video.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+</div>
+<div class="content">
+  <p class="txt">The early access of the game will be released in <b>July, 2024</b>.</p>
+  <p class="txt">For more details and future updates, visit our <a href="https://store.steampowered.com/app/2974560/Echo_of_Mobius/" target="_blank">Steam</a></li> page or follow our <a href="https://twitter.com/echo_of_mobius" target="_blank">X</a></li> account.</p>
+</div>
+<div class="button">
+  <button onclick="topFunction()" id="myBtn" title="Go to top">Back to Top</button>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+      var lastMouseX = 0; // Variable to store the last mouseX position
+      var bodyElement = document.body; // Using body as the hover area
+      document.body.style.opacity = 0;
+      window.onload = function() {
+          document.body.style.transition = 'opacity 0.5s ease-in-out';
+          document.body.style.opacity = 1;
+      };
+      bodyElement.addEventListener('mousemove', function(event) {
+          var currentMouseX = event.clientX; // Get current mouseX position
+
+          if (currentMouseX < lastMouseX) {
+              // Mouse is moving left
+              bodyElement.style.cursor = "url('cursor_left.png'), auto";
+          } else if (currentMouseX > lastMouseX) {
+              // Mouse is moving right or not moving horizontally
+              bodyElement.style.cursor = "url('cursor.png'), auto";  // Default cursor or other cursor
+          }
+
+          lastMouseX = currentMouseX; // Update lastMouseX position
+      });
+  });
+  document.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const href = this.href;
+          document.body.style.opacity = 0;
+
+          setTimeout(() => {
+              window.location.href = href;
+          }, 500); // Match the duration of the fade-out effect
+      });
+  });
+  document.getElementById('sidebar').addEventListener('click', function() {
+      const sidebar = this;
+      const sidebarTitle = document.getElementById('sidebarTitle');
+      const list = document.getElementById('list');
+      if (sidebar.style.width === "215px") {
+        sidebar.style.width = "75px";  // Double the width
+        sidebar.style.height = "92px";
+        sidebarTitle.style.opacity = "0";
+        list.style.opacity = "0";
+      } else {
+        sidebar.style.width = "215px";  // Set back to normal width
+        sidebar.style.height = "420px";
+        sidebarTitle.style.opacity = "1"; // Change back to original title after 1 second
+        setTimeout(() => {
+          list.style.opacity = "1";
+        }, 500);
+      }
+  });
+  function topFunction() {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+  }
+</script>
+</body>
+</html>
