@@ -213,6 +213,8 @@
 <img class="cloud" src="cloud1.png" alt="Cloud">
 <img class="cloud1" src="cloud2.png" alt="Cloud">
 <script>
+  flag = true;
+  flag1 = false;
   document.addEventListener('DOMContentLoaded', function() {
       var lastMouseX = 0; // Variable to store the last mouseX position
       var bodyElement = document.body; // Using body as the hover area
@@ -227,13 +229,44 @@
 
           if (currentMouseX < lastMouseX) {
               // Mouse is moving left
-              bodyElement.style.cursor = "url('cursor_left.png'), auto";
+              if (flag1) {
+                bodyElement.style.cursor = "url('cursor1_left.png'), auto";
+              } else {
+                bodyElement.style.cursor = "url('cursor_left.png'), auto";
+              }
+              flag = false;
+
           } else if (currentMouseX > lastMouseX) {
               // Mouse is moving right or not moving horizontally
-              bodyElement.style.cursor = "url('cursor.png'), auto";  // Default cursor or other cursor
+              if (flag1) {
+                bodyElement.style.cursor = "url('cursor1.png'), auto";
+              } else {
+                bodyElement.style.cursor = "url('cursor.png'), auto";
+              }  // Default cursor or other cursor
+              flag = true;
           }
 
           lastMouseX = currentMouseX; // Update lastMouseX position
+      });
+      bodyElement.addEventListener('mousedown', function(event) {
+        var currentMouseX = event.clientX; // Get current mouseX position on mouse down
+        flag1 = true;
+        if (flag) {
+            bodyElement.style.cursor = "url('cursor1.png'), auto";
+        } else {
+            bodyElement.style.cursor = "url('cursor1_left.png'), auto";
+        }
+        // bodyElement.style.cursor = "url('cursor1.png'), auto";
+
+        // Optional: revert to default cursor on mouseup if needed
+        bodyElement.addEventListener('mouseup', function() {
+          flag1 = false;
+          if (flag) {
+              bodyElement.style.cursor = "url('cursor.png'), auto";
+          } else {
+              bodyElement.style.cursor = "url('cursor_left.png'), auto";
+          }
+        });
       });
   });
   document.getElementById('tag0').addEventListener('click', function() {

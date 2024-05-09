@@ -46,6 +46,7 @@
     font-size: 28px;
     text-decoration: none;
     color: black;
+    cursor: inherit;
   }
   .content a:hover {
     color: rgb(230, 174, 1)
@@ -91,7 +92,7 @@
     background-color: white; /* Set a background color */
     font-family: "Londrina Shadow", sans-serif;
     font-size: 48px;
-    cursor: pointer;
+    cursor: inherit;
   }
 
   #myBtn:hover {
@@ -102,6 +103,7 @@
     position: fixed;
     left: 30px;
     top: 30px;
+    background-color: white;
     width: 75px;
     height: 92px;
     border-top: 1px black solid;
@@ -144,6 +146,7 @@
     font-size: 36px;
     text-decoration: none;
     color: black;
+    cursor: inherit;
   }
   #sidebar a:hover {
     font-family: "Londrina Solid", sans-serif;
@@ -210,6 +213,8 @@
   <button onclick="topFunction()" id="myBtn" title="Go to top">Back to Top</button>
 </div>
 <script>
+  flag = true;
+  flag1 = false;
   document.addEventListener('DOMContentLoaded', function() {
       var lastMouseX = 0; // Variable to store the last mouseX position
       var bodyElement = document.body; // Using body as the hover area
@@ -223,13 +228,44 @@
 
           if (currentMouseX < lastMouseX) {
               // Mouse is moving left
-              bodyElement.style.cursor = "url('cursor_left.png'), auto";
+              if (flag1) {
+                bodyElement.style.cursor = "url('cursor1_left.png'), auto";
+              } else {
+                bodyElement.style.cursor = "url('cursor_left.png'), auto";
+              }
+              flag = false;
+
           } else if (currentMouseX > lastMouseX) {
               // Mouse is moving right or not moving horizontally
-              bodyElement.style.cursor = "url('cursor.png'), auto";  // Default cursor or other cursor
+              if (flag1) {
+                bodyElement.style.cursor = "url('cursor1.png'), auto";
+              } else {
+                bodyElement.style.cursor = "url('cursor.png'), auto";
+              }  // Default cursor or other cursor
+              flag = true;
           }
 
           lastMouseX = currentMouseX; // Update lastMouseX position
+      });
+      bodyElement.addEventListener('mousedown', function(event) {
+        var currentMouseX = event.clientX; // Get current mouseX position on mouse down
+        flag1 = true;
+        if (flag) {
+            bodyElement.style.cursor = "url('cursor1.png'), auto";
+        } else {
+            bodyElement.style.cursor = "url('cursor1_left.png'), auto";
+        }
+        // bodyElement.style.cursor = "url('cursor1.png'), auto";
+
+        // Optional: revert to default cursor on mouseup if needed
+        bodyElement.addEventListener('mouseup', function() {
+          flag1 = false;
+          if (flag) {
+              bodyElement.style.cursor = "url('cursor.png'), auto";
+          } else {
+              bodyElement.style.cursor = "url('cursor_left.png'), auto";
+          }
+        });
       });
   });
   document.querySelectorAll('a').forEach(link => {
